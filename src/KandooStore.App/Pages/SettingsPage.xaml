@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.SettingsPage"
+             FlowDirection="RightToLeft"
+             Title="تنظیمات">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Style="{StaticResource PageTitle}" Text="تنظیمات" />
+            <Label Style="{StaticResource SectionTitle}" Text="وضعیت هاب" />
+            <Label x:Name="StoreInfoLabel" />
+            <Label x:Name="SyncInfoLabel" FontSize="13" TextColor="Gray"
+                   Text="همگام‌سازی با Cloud در نسخه ۱ فعال نیست؛ همگام‌سازی نمایشی (FAKE) فقط در فایل لاگ محلی می‌نویسد (Local-first)." />
+            <Label Style="{StaticResource SectionTitle}" Text="پیامک (فراز اس‌ام‌اس)" />
+            <Label Style="{StaticResource PageSubtitle}" Text="ارسال پیامک فاکتور فعال باشد — کلید دسترسی و خط فرستنده از تنظیمات فروشگاه خوانده می‌شود." />
+            <Label x:Name="AuthStatusLabel" FontSize="13" Text="احراز هویت مشتری (OTP): خاموش (پیش‌فرض)." />
+            <Button Text="فعال/غیرفعال کردن احراز هویت مشتری (OTP)" Clicked="OnToggleAuthClicked" />
+            <Label x:Name="DemoStatusLabel" FontSize="13" Text="حالت نمایشی OTP (دمو): خاموش (پیش‌فرض)." />
+            <Button Text="فعال/غیرفعال کردن حالت نمایشی OTP (دمو — کد 123456)" Clicked="OnToggleDemoClicked" />
+            <Label Style="{StaticResource SectionTitle}" Text="پشتیبان‌گیری" />
+            <Label Style="{StaticResource PageSubtitle}" Text="بازیابی، اطلاعات فعلی را با نسخه‌ی پشتیبان جایگزین می‌کند. قبل از اجرا یک پشتیبان تازه ساخته می‌شود و تأیید دوباره خواسته می‌شود." />
+            <Label x:Name="HolooStatusLabel" FontSize="13" Text="Holoo نمایشی (FAKE): بارگذاری نشده است." />
+            <Button Text="بارگذاری داده نمونه Holoo (دمو — FAKE)" Clicked="OnLoadFakeHolooClicked" />
+            <Button Text="بارگذاری داده نمونه (دمو)" Clicked="OnSeedDemoClicked" />
+            <Label x:Name="InfoLabel" FontSize="13" TextColor="Gray" />
+            <Label FontSize="12" TextColor="Gray" Text="نسخه ۱٫۲٫۰ — نهایی (دمو) — موارد FAKE در README مشخص شده‌اند" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

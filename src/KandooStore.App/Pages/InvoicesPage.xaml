@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.InvoicesPage"
+             FlowDirection="RightToLeft"
+             Title="فاکتورها">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="فاکتورها" />
+        <Label Style="{StaticResource PageSubtitle}" Text="همه | پیامک ارسال شد | نیازمند بازبینی | لغوشده" />
+        <Label FontSize="14" Text="فاکتورهای صادرشده (پیش‌نویس‌ها شماره ندارند)" />
+        <CollectionView x:Name="InvoicesView" SelectionMode="Single" SelectionChanged="OnInvoiceSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                    <VerticalStackLayout Padding="8">
+                        <Label FontAttributes="Bold">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="فاکتور شماره " /><Span Text="{Binding DisplayNumber}" />
+                                    <Span Text=" — " /><Span Text="{Binding CustomerName}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="13" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="مبلغ: " /><Span Text="{Binding TotalAmount}" />
+                                    <Span Text=" ریال | وضعیت: " /><Span Text="{Binding Status}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="فاکتور جدید" Clicked="OnNewInvoiceClicked" />
+    </VerticalStackLayout>
+</ContentPage>

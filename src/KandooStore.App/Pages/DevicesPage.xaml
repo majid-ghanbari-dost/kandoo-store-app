@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.DevicesPage"
+             FlowDirection="RightToLeft"
+             Title="دستگاه‌ها">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="دستگاه‌ها و دسترسی" />
+        <Label Style="{StaticResource PageSubtitle}" Text="فروشنده: فقط فاکتور | اپراتور: فاکتور و تعریف کالا | مدیر: همه‌چیز" />
+        <Label FontSize="14" Text="دستگاه‌های فروشگاه و صف همگام‌سازی (Outbox). کد جفت‌سازی فقط برای مدت کوتاه معتبر است." />
+        <Label x:Name="StoreNameLabel" FontAttributes="Bold" />
+        <Label x:Name="StoreIdLabel" FontSize="13" />
+        <Label x:Name="DeviceIdLabel" FontSize="13" />
+        <Label x:Name="HubUrlLabel" FontSize="13" />
+        <Label x:Name="FakeHubLabel" FontSize="13" />
+        <Label x:Name="OutboxLabel" FontSize="13" />
+        <Label x:Name="SyncResultLabel" FontSize="13" TextColor="Gray" />
+        <Button Text="همگام‌سازی نمایشی (FAKE)" Clicked="OnSyncClicked" />
+        <Button Text="به‌روزرسانی" Clicked="OnRefreshClicked" Style="{StaticResource SecondaryButton}" />
+    </VerticalStackLayout>
+</ContentPage>

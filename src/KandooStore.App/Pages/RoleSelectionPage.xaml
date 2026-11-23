@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.RoleSelectionPage"
+             FlowDirection="RightToLeft"
+             Title="انتخاب نقش">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Image Source="kandoo_logo.png" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center" Aspect="AspectFit" AutomationProperties.Name="لوگوی کندو" />
+        <Label Style="{StaticResource PageTitle}" Text="به کندو خوش آمدید" />
+        <Label Style="{StaticResource PageSubtitle}" Text="نقش خود را انتخاب کنید" />
+        <Label x:Name="CurrentRoleLabel" FontSize="14" />
+        <Label x:Name="PlatformNoteLabel" FontSize="14" TextColor="Gray" />
+        <Button Text="فروشگاه" Clicked="OnStoreClicked" />
+        <Label Style="{StaticResource PageSubtitle}" Text="فاکتور، کالا و مشتری‌های فروشگاه خودم" />
+        <Button x:Name="CustomerButton" Text="مشتری" Clicked="OnCustomerClicked" />
+        <Label Style="{StaticResource PageSubtitle}" Text="فاکتورهای خریدم را یک‌جا ببینم" />
+        <Button x:Name="BothButton" Text="فروشگاه + مشتری" Clicked="OnBothClicked" />
+        <Label Style="{StaticResource PageSubtitle}" Text="هم فروشگاه دارم، هم مشتری هستم" />
+        <Label Style="{StaticResource PageSubtitle}" Text="هر وقت بخواهید می‌توانید از بخش «نقش‌ها» عوض کنید." />
+        <Label x:Name="StatusLabel" FontSize="14" />
+    </VerticalStackLayout>
+</ContentPage>

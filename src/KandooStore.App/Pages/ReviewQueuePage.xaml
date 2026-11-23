@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.ReviewQueuePage"
+             FlowDirection="RightToLeft"
+             Title="صف بازبینی">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="منتظر تأیید" />
+        <Label Style="{StaticResource PageSubtitle}" Text="کندو در این فاکتورها مطمئن نبود. بررسی کنید و بفرستید. مورد ردشده هرگز صادر نمی‌شود." />
+        <Label FontSize="14" TextColor="{StaticResource KandooReview}" Text="نیازمند بازبینی یعنی هشدار است، نه خطا — دلیل هر مورد زیر آن نوشته شده است." />
+        <CollectionView x:Name="ReviewView" SelectionMode="Single" SelectionChanged="OnReviewSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                    <VerticalStackLayout Padding="8">
+                        <Label FontAttributes="Bold" Text="{Binding Title}" />
+                        <Label FontSize="13" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="منبع: " /><Span Text="{Binding Source}" />
+                                    <Span Text=" | Gate: " /><Span Text="{Binding Gate}" />
+                                    <Span Text=" | مبلغ: " /><Span Text="{Binding TotalAmount}" />
+                                    <Span Text=" ریال" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="تأیید و ارسال پیامک" Clicked="OnApproveClicked" />
+        <Button Text="رد مورد انتخاب‌شده" Clicked="OnRejectClicked" Style="{StaticResource SecondaryButton}" />
+        <Label x:Name="StatusLabel" FontSize="14" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.ProductsPage"
+             FlowDirection="RightToLeft"
+             Title="محصولات">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="کالاها" />
+        <Label Style="{StaticResource PageSubtitle}" Text="همه | قیمت ناقص | موجودی تأییدنشده | موجودی کم" />
+        <SearchBar x:Name="SearchBar" Placeholder="جستجو با نام یا کد…" TextChanged="OnSearchTextChanged" />
+        <CollectionView x:Name="ProductsView" SelectionMode="Single" SelectionChanged="OnProductSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                    <VerticalStackLayout Padding="8">
+                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                        <Label FontSize="13" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="کد: " /><Span Text="{Binding Tag}" />
+                                    <Span Text=" | قیمت: " /><Span Text="{Binding Price}" />
+                                    <Span Text=" | موجودی: " /><Span Text="{Binding Stock}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="محصول جدید" Clicked="OnAddProductClicked" />
+        <Label x:Name="InfoLabel" FontSize="13" TextColor="Gray" />
+        <Label Style="{StaticResource PageSubtitle}" Text="کالای «قیمت ناقص» تا ثبت قیمت قابل فروش نیست." />
+    </VerticalStackLayout>
+</ContentPage>

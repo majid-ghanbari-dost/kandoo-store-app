@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.CustomerInvoicesPage"
+             FlowDirection="RightToLeft"
+             Title="فاکتورهای من">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="ورود به کندو" />
+        <Label Style="{StaticResource PageSubtitle}" Text="فاکتورهای خریدتان یک‌جا" />
+        <Label FontSize="14" Text="کد به همین شماره پیامک می‌شود. اگر فاکتوری برای این شماره ثبت نشده باشد، پیامکی نمی‌رود. پیامک واقعی در این نسخه ارسال نمی‌شود (نمایشی)." />
+        <Entry x:Name="PhoneEntry" Placeholder="شماره موبایل (09123456789)" Keyboard="Telephone" />
+        <Button Text="ارسال کد" Clicked="OnSendCodeClicked" />
+        <Entry x:Name="CodeEntry" Placeholder="کد ۶ رقمی" Keyboard="Numeric" />
+        <Button Text="ورود" Clicked="OnVerifyClicked" />
+        <Label x:Name="StatusLabel" FontSize="14" />
+        <Label Style="{StaticResource SectionTitle}" Text="فاکتورهای من" />
+        <CollectionView x:Name="CustomerInvoicesView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                    <VerticalStackLayout Padding="8">
+                        <Label FontAttributes="Bold">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="فاکتور شماره " /><Span Text="{Binding DisplayNumber}" />
+                                    <Span Text=" — " /><Span Text="{Binding CustomerName}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="13" TextColor="Gray">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="مبلغ: " /><Span Text="{Binding TotalAmount}" />
+                                    <Span Text=" ریال" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

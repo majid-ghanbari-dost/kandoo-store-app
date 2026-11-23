@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.NewInvoicePage"
+             FlowDirection="RightToLeft"
+             Title="فاکتور جدید">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Style="{StaticResource PageTitle}" Text="صدور فاکتور" />
+        <Label Style="{StaticResource PageSubtitle}" Text="نوع: فروش — اجاره و خدمات به‌زودی" />
+            <Label Text="مشتری" FontAttributes="Bold" />
+            <Entry x:Name="CustomerNameEntry" Placeholder="نام مشتری" />
+            <Entry x:Name="CustomerPhoneEntry" Placeholder="شماره موبایل" Keyboard="Telephone" />
+            <Label Text="کالاها" FontAttributes="Bold" />
+            <Label Style="{StaticResource PageSubtitle}" Text="تگ رقمی سریع‌ترین راه است؛ یا نام کالا را بنویسید." />
+            <Label Text="محصول (با کد Tag)" FontAttributes="Bold" />
+            <Entry x:Name="ProductTagEntry" Placeholder="مثلاً 1001" Keyboard="Numeric" />
+            <Entry x:Name="QuantityEntry" Placeholder="تعداد" Keyboard="Numeric" Text="1" />
+            <Button Text="افزودن ردیف" Clicked="OnAddLineClicked" Style="{StaticResource SecondaryButton}" />
+            <CollectionView x:Name="LinesView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Padding="8">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding ProductName}" />
+                                    <Span Text=" × " /><Span Text="{Binding Quantity}" />
+                                    <Span Text=" = " /><Span Text="{Binding LineTotal}" />
+                                    <Span Text=" ریال" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label x:Name="TotalLabel" FontAttributes="Bold" Text="جمع: ۰ ریال" />
+            <Button Text="صدور فاکتور" Clicked="OnIssueClicked" />
+            <Label x:Name="InfoLabel" FontSize="13" TextColor="Gray" />
+            <Label FontSize="12" TextColor="Gray" Text="پس از صدور (ISSUE)، فاکتور تغییرناپذیر است و شماره نمایشی به آن اختصاص می‌یابد. فاکتور دیجیتال همیشه برای مشتری پیامک می‌شود." />
+            <Label Style="{StaticResource PageSubtitle}" Text="روش تسویه: کارت‌خوان / کارت‌به‌کارت / نقدی — چاپ فاکتور برای مشتری اختیاری است." />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

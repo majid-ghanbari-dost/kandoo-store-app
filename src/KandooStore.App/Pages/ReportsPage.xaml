@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.ReportsPage"
+             FlowDirection="RightToLeft"
+             Title="گزارش‌ها">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Style="{StaticResource PageTitle}" Text="گزارش فروش" />
+        <Label Style="{StaticResource PageSubtitle}" Text="امروز | این هفته | این ماه | بازه‌ی دلخواه" />
+            <Label Text="گزارش فروش (۳۰ روز گذشته)" FontAttributes="Bold" />
+            <Label x:Name="SalesLabel" />
+            <Label x:Name="ProfitLabel" />
+            <Label Text="کم‌موجودی‌ها" FontAttributes="Bold" />
+            <CollectionView x:Name="LowStockView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Padding="8">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Name}" />
+                                    <Span Text=" — موجودی: " /><Span Text="{Binding Stock}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="پرفروش‌ترین‌ها" FontAttributes="Bold" />
+            <Label Style="{StaticResource PageSubtitle}" Text="سود فقط برای کالاهایی حساب می‌شود که قیمت خرید دارند. ارزش موجودی بر پایه‌ی قیمت خرید است؛ موجودی «تأییدنشده» (مثلاً واردشده از هلو) تا شمارش انبار در ارزش قطعی نمی‌آید." />
+            <Label x:Name="TopProductsLabel" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

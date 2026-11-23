@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.MainPage"
+             FlowDirection="RightToLeft"
+             Title="کندو">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Image Source="kandoo_logo.png" WidthRequest="120" HeightRequest="120" HorizontalOptions="Start" Aspect="AspectFit" AutomationProperties.Name="لوگوی کندو" />
+            <Label Style="{StaticResource PageTitle}" Text="کندو" />
+            <Label Style="{StaticResource PageSubtitle}" Text="فاکتور دیجیتال، ساده و قابل‌اعتماد" />
+            <Button Text="فاکتور جدید" Clicked="OnNewInvoiceClicked" />
+            <Button Text="محصولات" Clicked="OnProductsClicked" Style="{StaticResource SecondaryButton}" />
+            <Button Text="مشتریان" Clicked="OnCustomersClicked" Style="{StaticResource SecondaryButton}" />
+            <Button Text="فاکتورها" Clicked="OnInvoicesClicked" Style="{StaticResource SecondaryButton}" />
+            <Button Text="گزارش‌ها" Clicked="OnReportsClicked" Style="{StaticResource SecondaryButton}" />
+            <Button Text="تنظیمات" Clicked="OnSettingsClicked" Style="{StaticResource SecondaryButton}" />
+            <Label x:Name="StatusLabel" FontSize="13" TextColor="Gray" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

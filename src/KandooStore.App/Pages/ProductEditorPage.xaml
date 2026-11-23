@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.ProductEditorPage"
+             FlowDirection="RightToLeft"
+             Title="ویرایش محصول">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="ثبت کالا" />
+        <Label Style="{StaticResource PageSubtitle}" Text="کالا را ریز کنید. مثال: «بادکنک کرومی سبز» — نام: بادکنک، نوع: کرومی، رنگ: سبز." />
+        <Label Text="نام کالا (الزامی)" FontAttributes="Bold" />
+        <Entry x:Name="NameEntry" Placeholder="نام محصول" />
+        <Label Text="تگ رقمی (اختیاری، خودکار)" FontAttributes="Bold" />
+        <Entry x:Name="TagEntry" Placeholder="کد عددی کوتاه (Tag)" />
+        <Label Text="قیمت فروش (الزامی)" FontAttributes="Bold" />
+        <Entry x:Name="PriceEntry" Placeholder="قیمت فروش (ریال)" Keyboard="Numeric" />
+        <Label Text="گروه / زیرگروه (اختیاری)" FontAttributes="Bold" />
+        <Entry x:Name="GroupEntry" Placeholder="گروه (اختیاری)" />
+        <Label Style="{StaticResource PageSubtitle}" Text="قیمت خرید و تعداد در انبار را بعد از ثبت، از «ویرایش کالا» کامل کنید. اگر نام، قیمت یا تعداد خالی باشد، کالا ساخته نمی‌شود." />
+        <Label x:Name="WarningLabel" FontSize="14" TextColor="{StaticResource KandooReview}" />
+        <Button Text="ذخیره" Clicked="OnSaveClicked" />
+        <Label x:Name="InfoLabel" FontSize="14" />
+    </VerticalStackLayout>
+</ContentPage>

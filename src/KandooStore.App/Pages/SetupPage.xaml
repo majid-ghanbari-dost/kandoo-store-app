@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.SetupPage"
+             FlowDirection="RightToLeft"
+             Title="راه‌اندازی اولیه کندو">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Image Source="kandoo_logo.png" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center" Aspect="AspectFit" AutomationProperties.Name="لوگوی کندو" />
+            <Label Style="{StaticResource PageTitle}" Text="به کندو خوش آمدید" />
+            <Label Style="{StaticResource PageSubtitle}" Text="راه‌اندازی فروشگاه در سه قدم: ۱ اطلاعات فروشگاه | ۲ تأیید شماره‌ی مدیر | ۳ پشتیبان‌گیری" />
+            <Label Text="راه‌اندازی اولیه فروشگاه — بدون نیاز به ترمینال یا ویرایش فایل. اطلاعات زیر فقط روی همین دستگاه ذخیره می‌شود." FontSize="14" />
+            <Label Text="نام فروشگاه" FontAttributes="Bold" />
+            <Entry x:Name="StoreNameEntry" Placeholder="مثلاً فروشگاه جشن شادی" />
+            <Label Text="نام مالک" FontAttributes="Bold" />
+            <Entry x:Name="OwnerNameEntry" Placeholder="نام و نام خانوادگی مالک" />
+            <Label Text="شماره موبایل مالک" FontAttributes="Bold" />
+            <Entry x:Name="OwnerPhoneEntry" Placeholder="شماره موبایل" Keyboard="Telephone" />
+            <Label Text="رمز عبور مدیر (برای ورود بعدی)" FontAttributes="Bold" />
+            <Entry x:Name="PasswordEntry" Placeholder="رمز عبور" IsPassword="True" />
+            <Button Text="تکمیل راه‌اندازی" Clicked="OnFinishClicked" />
+            <Label x:Name="ErrorLabel" TextColor="Red" FontSize="13" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

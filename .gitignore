@@ -1,0 +1,54 @@
+## Build outputs
+bin/
+obj/
+publish/
+*.user
+*.suo
+.vs/
+*.userosscache
+*.sln.docstates
+
+## .NET / MAUI
+*.dll
+*.exe
+*.pdb
+*.apk
+*.aab
+*.msix
+*.appx
+*.cer
+*.pfx
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/
+!**/[Pp]ackages/build/
+.nuget/
+
+## OS / editors
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
+## Local data (never commit a real store database)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+local.settings.json
+appsettings.local.json
+
+## Secrets (never commit)
+*.key
+*.pem
+*.pfx
+*.p12
+.env
+**/*secret*
+**/*credential*

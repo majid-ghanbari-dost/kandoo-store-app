@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- لوگوی تخت کندو (docs/design-canvas/Brand-Logo-Owner.dc.html): شش‌ضلعی عسلی
+       با تیک قهوه‌ای تیره؛ نسخه‌ی تخت برای آیکون اپ و فاکتور. بدون گرادیان/جلا. -->
+  <rect width="512" height="512" fill="#FFF8E7"/>
+  <polygon points="256,48 436,152 436,360 256,464 76,360 76,152" fill="#F2A900"/>
+  <path d="M176 258l56 56 112-126" fill="none" stroke="#2B1D0E" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

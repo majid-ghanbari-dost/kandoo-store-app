@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KandooStore.App.Pages.ReturnsPage"
+             FlowDirection="RightToLeft"
+             Title="برگشت کالا">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Style="{StaticResource PageTitle}" Text="برگشت فاکتور" />
+        <Label Style="{StaticResource PageSubtitle}" Text="فاکتور اصلی پاک نمی‌شود. یک رویداد «برگشت» ثبت می‌شود و موجودی و حساب‌ها خودکار اصلاح می‌شوند." />
+        <Label FontSize="14" Text="برگشت کالا از مشتری: رویداد ReturnIn در دفتر موجودی ثبت می‌شود؛ موجودی مستقیم ویرایش نمی‌شود." />
+        <Entry x:Name="ProductTagEntry" Placeholder="کد محصول (Tag)" />
+        <Entry x:Name="QuantityEntry" Placeholder="تعداد برگشت" Keyboard="Numeric" />
+        <Entry x:Name="InvoiceNumberEntry" Placeholder="شماره فاکتور (اختیاری)" Keyboard="Numeric" />
+        <Entry x:Name="ReasonEntry" Placeholder="دلیل برگشت" />
+        <Button Text="ثبت برگشت" Clicked="OnReturnClicked" />
+        <Label Style="{StaticResource PageSubtitle}" Text="بازپرداخت: نقدی / کارت / کسر از طلب (در نسخه ۱ نقدی)." />
+        <Label x:Name="StatusLabel" FontSize="14" />
+    </VerticalStackLayout>
+</ContentPage>

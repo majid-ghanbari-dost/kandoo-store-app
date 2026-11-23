@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-android;net8.0-windows10.0.19041.0</TargetFrameworks>
+    <!-- PM-03 (ریپوی مادر): با -p:KandooWindowsOnly=true فقط هدف ویندوز انتخاب می‌شود؛
+         هرگز از -p:TargetFrameworks (جمع) استفاده نکنید. -->
+    <TargetFrameworks Condition="'$(KandooWindowsOnly)' == 'true'">net8.0-windows10.0.19041.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>KandooStore.App</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+
+    <ApplicationTitle>فاکتور دیجیتال کندو</ApplicationTitle>
+    <ApplicationId>ir.kandoo.app</ApplicationId>
+    <ApplicationIdGuid>11111111-2222-4333-8444-555555555555</ApplicationIdGuid>
+    <ApplicationDisplayVersion>1.2.0</ApplicationDisplayVersion>
+    <ApplicationVersion>3</ApplicationVersion>
+    <WindowsPackageType>None</WindowsPackageType>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetFrameworkIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <AndroidPackageFormat Condition="$([MSBuild]::GetTargetFrameworkIdentifier('$(TargetFramework)')) == 'android'">apk</AndroidPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.100" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KandooStore.Core\KandooStore.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- App icon / splash: لوگوی اصلی کندو — شش‌ضلعی طلایی براق لایه‌ای
+         (docs/brand/Glossy_Golden_Hexagon_Layers.png — انتخاب مالک، ۲۰۲۶-۱۱-۲۲)
+         برای هر دو پلتفرم Windows و Android (پروژه‌ی MAUI تک‌پروژه‌ای است؛
+         یک MauiIcon و یک MauiSplashScreen برای هر دو هدف اعمال می‌شود).
+         فایل PNG پس‌زمینه‌ی سفیدِ مات دارد (بدون شفافیت) و گوشه‌هایش
+         ‎~#FDFDFD است؛ برای همین Color سفید است تا لبه‌ی تصویر با پس‌زمینه
+         یکدست شود. فایل‌های appicon.svg / appiconfg.svg / splash.svg
+         (شش‌ضلعی تخت با تیک) فقط به‌عنوان جایگزین اندازه‌های خیلی کوچک
+         در ریپو مانده‌اند و دیگر آیکون اصلی نیستند. -->
+    <MauiIcon Include="Resources\Images\kandoo_logo.png" Color="#FFF8E7" />
+    <MauiSplashScreen Include="Resources\Images\kandoo_logo.png" Color="#FFF8E7" BaseSize="128,128" />
+    <MauiImage Include="Resources\Images\*" />
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
