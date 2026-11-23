@@ -12,7 +12,6 @@
     <Nullable>enable</Nullable>
     <LangVersion>12</LangVersion>
 
-
     <ApplicationTitle>فاکتور دیجیتال کندو</ApplicationTitle>
     <ApplicationId>ir.kandoo.app</ApplicationId>
     <ApplicationIdGuid>11111111-2222-4333-8444-555555555555</ApplicationIdGuid>
@@ -25,11 +24,9 @@
     <AndroidPackageFormat Condition="$([MSBuild]::GetTargetFrameworkIdentifier('$(TargetFramework)')) == 'android'">apk</AndroidPackageFormat>
   </PropertyGroup>
 
-
   <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
@@ -38,11 +35,9 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
   </ItemGroup>
 
-
   <ItemGroup>
     <ProjectReference Include="..\KandooStore.Core\KandooStore.Core.csproj" />
   </ItemGroup>
-
 
   <ItemGroup>
     <!-- App icon / splash: لوگوی اصلی کندو — شش‌ضلعی طلایی براق لایه‌ای
@@ -60,4 +55,3 @@
     <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>
-
