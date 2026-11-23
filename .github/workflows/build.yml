@@ -83,7 +83,7 @@ jobs:
       - name: Install MAUI workload
         run: dotnet workload install maui
       - name: Publish Android APK (Release)
-        run: dotnet publish KandooStore.App.csproj -c Release -f net8.0-android -p:AndroidPackageFormat=apk --no-restore
+        run: dotnet publish KandooStore.App.csproj -c Release -f net8.0-android -p:AndroidPackageFormat=apk
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
         with:
