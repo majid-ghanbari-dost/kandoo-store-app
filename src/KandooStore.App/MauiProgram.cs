@@ -63,7 +63,7 @@ public static class MauiProgram
         builder.Services.AddTransient<Pages.InvoicesPage>();
         builder.Services.AddTransient<Pages.NewInvoicePage>();
         builder.Services.AddTransient<Pages.ReportsPage>();
-                builder.Services.AddTransient<Pages.SettingsPage>();
+            builder.Services.AddTransient<Pages.SettingsPage>();
         builder.Services.AddTransient<Pages.SetupPage>();
         builder.Services.AddTransient<Pages.ReturnsPage>();
         builder.Services.AddTransient<Pages.DevicesPage>();
