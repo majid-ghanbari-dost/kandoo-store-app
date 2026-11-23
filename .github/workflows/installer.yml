@@ -1,6 +1,5 @@
 name: Windows installer (Kandoo-Setup-x64.exe)
 
-
 # Builds the Inno Setup installer for the MAUI Windows app.
 # Layout target (PM-04, installer layout v2): {app}\app\KandooStore.App.exe
 # with its own self-contained runtime. The Hub ({app}\hub\Kandoo.Hub.exe)
@@ -8,7 +7,6 @@ name: Windows installer (Kandoo-Setup-x64.exe)
 # packaging/HubPilot/BUILD-INSTALLER.md. This installer is PARTIAL until it
 # is tested on a real Windows machine by the owner (R-01 in the handoff).
 # Hand-written for this repo; not a copy of the old workflow.
-
 
 on:
   push:
@@ -19,11 +17,9 @@ on:
       - ".github/workflows/installer.yml"
   workflow_dispatch:
 
-
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: "1"
   DOTNET_NOLOGO: "true"
-
 
 jobs:
   build-installer:
@@ -51,4 +47,3 @@ jobs:
           name: kandoo-setup-x64
           path: packaging/HubPilot/Output/Kandoo-Setup-x64.exe
           if-no-files-found: error
-
