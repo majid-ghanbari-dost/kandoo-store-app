@@ -20,14 +20,12 @@
 ; Hand-written for this repo, following the old KandooHub.Installer.iss
 ; (main @ 8059f5f4). PARTIAL: not yet tested on a real Windows machine.
 
-
 #define MyAppName "Kandoo"
 #define MyAppPublisher "Kandoo"
 #define MyAppURL "https://kandoo.ir"
 #define MyAppExeName "KandooStore.App.exe"
 #define MyAppVersion "1.2.1"
 #define InstallerName "Kandoo-Setup-x64"
-
 
 [Setup]
 ; Fixed AppId keeps upgrades replacing the same installation.
@@ -50,21 +48,24 @@ ArchitecturesInstallIn64BitMode=x64
 OutputDir=Output
 OutputBaseFilename={#InstallerName}
 
-
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
 
-
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-
 
 [Files]
 ; Windows app publish output, in its own folder, with its own runtime.
 Source: "publish\app\*"; DestDir: "{app}\app"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "README.txt"; DestDir: "{app}"; Flags: ignoreversion
 
-
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\app\{#MyAppExeName}"; WorkingDir: "{app}\app"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\app\{#MyAppExeName}"; WorkingDir: "{app}\app"; Tasks: desktopicon
+
+[Run]
+Filename: "{app}\app\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent unchecked
+
+[UninstallDelete]
+Type: filesandordirs; Name: "{app}"
