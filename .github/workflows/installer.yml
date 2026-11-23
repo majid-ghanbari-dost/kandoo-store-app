@@ -47,4 +47,3 @@ jobs:
           name: kandoo-setup-x64
           path: packaging/HubPilot/Output/Kandoo-Setup-x64.exe
           if-no-files-found: error
-
