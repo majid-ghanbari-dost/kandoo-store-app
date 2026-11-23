@@ -1,8 +1,11 @@
 using KandooStore.Core.Domain;
 using KandooStore.Core.Services;
+using KandooStore.Core.Services.Holoo;
 using Microsoft.Extensions.Logging;
 
+
 namespace KandooStore.App;
+
 
 public static class MauiProgram
 {
@@ -12,9 +15,11 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>();
 
+
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+
 
         // Local-first: SQLite در پوشه داده برنامه.
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "kandoo.db3");
@@ -33,7 +38,7 @@ public static class MauiProgram
         // Hub واقعی از طریق HubClient (HTTP) وصل می‌شود.
         builder.Services.AddSingleton<FakeLocalHub>();
         // منبع نمایشی Holoo (FAKE): داده نمونه ساختگی، فقط‌خواندنی، بدون اتصال زنده.
-        builder.Services.AddSingleton<Holoo.FakeHolooSource>();
+        builder.Services.AddSingleton<FakeHolooSource>();
         // قفل پیش‌نویس در حافظه (موتور قوانین؛ قفل پایدار در SQLite است).
         builder.Services.AddSingleton<IClock, SystemClock>();
         builder.Services.AddSingleton<DraftLockManager>();
@@ -42,6 +47,7 @@ public static class MauiProgram
         // پیامک واقعی (Faraz) پیاده نشده است و احراز هویت به‌صورت پیش‌فرض خاموش است.
         builder.Services.AddSingleton<ISmsSender, FakeOtpProvider>();
         builder.Services.AddSingleton<CustomerAuthService>();
+
 
         // فونت طراحی (docs/design-canvas/Main.dc.html): وزیرمتن (Vazirmatn)،
         // عنوان‌ها ۸۰۰، متن ۴۰۰، تأکیدها ۶۰۰. همه‌ی سبک‌ها FontFamily="Vazirmatn"
@@ -56,22 +62,10 @@ public static class MauiProgram
             // fonts.AddFont("Vazirmatn-Bold.ttf", "Vazirmatn-Bold");
         });
 
+
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddTransient<Pages.ProductsPage>();
         builder.Services.AddTransient<Pages.CustomersPage>();
         builder.Services.AddTransient<Pages.InvoicesPage>();
         builder.Services.AddTransient<Pages.NewInvoicePage>();
         builder.Services.AddTransient<Pages.ReportsPage>();
-        builder.Services.AddTransient<Pages.SettingsPage>();
-        builder.Services.AddTransient<Pages.SetupPage>();
-        builder.Services.AddTransient<Pages.ReturnsPage>();
-        builder.Services.AddTransient<Pages.DevicesPage>();
-        builder.Services.AddTransient<Pages.ReviewQueuePage>();
-        builder.Services.AddTransient<Pages.CustomerInvoicesPage>();
-        builder.Services.AddTransient<Pages.RoleSelectionPage>();
-        builder.Services.AddTransient<Pages.InvoiceDetailsPage>();
-        builder.Services.AddTransient<Pages.ProductEditorPage>();
-
-        return builder.Build();
-    }
-}
