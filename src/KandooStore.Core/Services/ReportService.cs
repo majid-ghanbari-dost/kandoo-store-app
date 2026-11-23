@@ -64,7 +64,7 @@ public class ReportService
             var lines = await conn.Table<InvoiceLine>().Where(l => l.InvoiceId == invoice.Id).ToListAsync();
             foreach (var line in lines)
             {
-                var cur = totals.TryGetValue(line.ProductName, out var v) ? v : (0, 0L);
+                var cur = totals.TryGetValue(line.ProductName, out var v) ? v : (Qty: 0, Revenue: 0L);
                 totals[line.ProductName] = (cur.Qty + line.Quantity, cur.Revenue + line.LineTotal);
             }
         }
